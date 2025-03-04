@@ -48,10 +48,10 @@ public class HelpMethods {
         // TODO: another called topRightGood
         // TODO: another called bottomRightGood
         // TODO: and finally one called topLeftGood
-        // TODO: assign to bottomLeftGood !IsSolid(x, y, lvlData)
-        // TODO: assign to topRightGood !IsSolid(x + width, y + height, lvlData)
-        // TODO: assign to bottomRightGood !IsSolid(x + width, y, lvlData)
-        // TODO: assign to topLeftGood !IsSolid(x, y + height, lvlData)
+        // TODO: assign to topLeftGood !IsSolid(x, y, lvlData)
+        // TODO: assign to topRightGood !IsSolid(x + width, y, lvlData)
+        // TODO: assign to bottomRightGood !IsSolid(x + width, y + height, lvlData)
+        // TODO: assign to bottomLeftGood !IsSolid(x, y + height, lvlData)
 
         return bottomLeftGood && topRightGood && bottomRightGood && topLeftGood;
     }
