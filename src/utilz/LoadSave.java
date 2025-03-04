@@ -62,7 +62,7 @@ public class LoadSave {
             // TODO: call e.printStackTrace()
         }
 
-        // TODO: make a File array named files and assign file.listFiles() to it
+        // TODO: make a File array named files and assign files.listFiles() to it
         // TOOD: repeat for filesSorted and assign new File[file.length] to it.
 
         for (int i = 0; i < filesSorted.length; i++)
