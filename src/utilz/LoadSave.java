@@ -63,7 +63,7 @@ public class LoadSave {
         }
 
         // TODO: make a File array named files and assign files.listFiles() to it
-        // TOOD: repeat for filesSorted and assign new File[file.length] to it.
+        // TOOD: repeat for filesSorted and assign new File[files.length] to it.
 
         for (int i = 0; i < filesSorted.length; i++)
             for (int j = 0; j < files.length; j++) {
