@@ -88,55 +88,136 @@ public class HelpMethods {
     }
 
     public static boolean IsEntityOnFloor(Rectangle2D.Float hitbox, int[][] lvlData) {
-
+        // TODO: if !IsSolid(hitbox.x, hitbox.y + hitbox.height +1, lvlData then
+        // TODO: if !IsSolid(hitbox.x + hitbox.width, hitbox.y + hitbox.height + 1, lvlData then
+        // TODO: return false
+        return true;
     }
 
     public static boolean IsFloor(Rectangle2D.Float hitbox, float xSpeed, int[][] lvlData) {
-
+        // TODO: if xSpeed is greater than 0 then
+        // TODO: return IsSolid(hitbox.x + hitbox.width + xSpeed, hitbox.y + hitbox.height + 1, lvlData);
+        // TODO: else
+        // TODO: return IsSolid(hitbox.x + xSpeed, hitbox.y + hitbox.height + 1, lvlData);
     }
 
     public static boolean CanCannonSeePlayer(int[][] lvlData, Rectangle2D.Float firstHitbox, Rectangle2D.Float secondHitbox, int yTile) {
+        // TODO: create an int named firstXTile and set to (int) (firstHitbox.x / Game.TILES_SIZE)
+        // TODO: repeat for secondXTile in appropriate fashion using the secondHitbox
 
+        // TODO: if firstXTile is greater than secondXTile then
+        // TODO: return IsAllTilesClear(secondXTile, firstXTile, yTile, lvlData)
+        // TODO: else
+        // TODO: return IsAllTilesClear(firstXTile, secondXTile, yTile, lvlData)
     }
 
     public static boolean IsAllTilesClear(int xStart, int xEnd, int y, int[][] lvlData) {
-
+        // TODO: for int i starting at 0 and ending before xEnd - xStart, adding 1 to i each iteration
+        // TODO: check if IsTileSolid with xStart +i, y, and lvlData then
+        // TODO: return false
+        return true;
     }
 
     public static boolean IsAllTilesWalkable(int xStart, int xEnd, int y, int[][] lvlData) {
-
+        if(IsAllTilesClear(xStart, xEnd, y, lvlData)){
+            // TODO: for int i starting at 0 ending before xEnd - xStart, incrementing by 1 each time then
+            // TODO: return false
+        }
+        return true;
     }
 
     public static boolean IsSightClear(int[][] lvlData, Rectangle2D.Float firstHitbox, Rectangle2D.Float secondHitbox, int yTile) {
+        // TODO: create an int named firstXTile and set to (int) (firstHitbox.x / Game.TILES_SIZE)
+        // TODO: repeat for secondXTile in appropriate fashion using the secondHitbox
 
+        // TODO: if firstXTile is greater than secondXTile then
+        // TODO: return IsAllTilesWalkable(secondXTile, firstXTile, yTile, lvlData)
+        // TODO: else
+        // TODO: return IsAllTilesWalkable(firstXTile, secondXTile, yTile, lvlData)
     }
 
     public static int[][] GetLevelData(BufferedImage img) {
-
+        int[][] lvlData = new int[img.getHeight()][img.getWidth()];
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getRed();
+                if (value >= 48)
+                    value = 0;
+                lvlData[j][i] = value;
+            }
+        return lvlData;
     }
 
     public static ArrayList<Crabby> GetCrabs(BufferedImage img) {
-
+        // TODO: create an ArrayList of Crabby named list and instantiate to a new ArrayList<>()
+        // TODO: for int j starting at 0 ending before img.getHeight() adding 1 each time then
+        // TODO: for int i starting at 0 ending before img.getWidth() adding 1 each time then
+        // TODO: create a Color named color and get from new Color(img.getRGB(i, j));
+        // TODO: create an int named value and get from color.getGreen();
+        // TODO: if (value == CRABBY) then
+        // TODO: call list.add passing in a new Crabby(i * Game.TILES_SIZE, j * Game.TILES_SIZE));
+        // TODO: end of both for loops
+        return list;
     }
 
     public static Point GetPlayerSpawn(BufferedImage img) {
-
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getGreen();
+                if (value == 100)
+                    return new Point(i * Game.TILES_SIZE, j * Game.TILES_SIZE);
+            }
+        return new Point(1 * Game.TILES_SIZE, 1 * Game.TILES_SIZE);
     }
 
     public static ArrayList<Potion> GetPotions(BufferedImage img) {
+        ArrayList<Potion> list = new ArrayList<>();
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getBlue();
+                if (value == RED_POTION || value == BLUE_POTION)
+                    list.add(new Potion(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+            }
 
+        return list;
     }
 
     public static ArrayList<GameContainer> GetContainers(BufferedImage img) {
+        ArrayList<GameContainer> list = new ArrayList<>();
+        for (int j = 0; j < img.getHeight(); j++)
+            for (int i = 0; i < img.getWidth(); i++) {
+                Color color = new Color(img.getRGB(i, j));
+                int value = color.getBlue();
+                if (value == BOX || value == BARREL)
+                    list.add(new GameContainer(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+            }
 
+        return list;
     }
 
     public static ArrayList<Spike> GetSpikes(BufferedImage img) {
-
+        // TODO: create an ArrayList of Spike named list and instantiate to a new ArrayList<>()
+        // TODO: for int j starting at 0 ending before img.getHeight() adding 1 each time then
+        // TODO: for int i starting at 0 ending before img.getWidth() adding 1 each time then
+        // TODO: create a Color named color and get from new Color(img.getRGB(i, j));
+        // TODO: create an int named value and get from color.getBlue();
+        // TODO: if (value == SPIKE) then
+        // TODO: call list.add passing in a new Spike(i * Game.TILES_SIZE, j * Game.TILES_SIZE, SPIKE));
+        // TODO: end of both for loops
     }
 
     public static ArrayList<Cannon> GetCannons(BufferedImage img) {
-
+        // TODO: create an ArrayList of Cannon named list and instantiate to a new ArrayList<>()
+        // TODO: for int j starting at 0 ending before img.getHeight() adding 1 each time then
+        // TODO: for int i starting at 0 ending before img.getWidth() adding 1 each time then
+        // TODO: create a Color named color and get from new Color(img.getRGB(i, j));
+        // TODO: create an int named value and get from color.getBlue();
+        // TODO: if (value == CANNON_LEFT || value == CANNON_RIGHT) then
+        // TODO: call list.add passing in a new Cannon(i * Game.TILES_SIZE, j * Game.TILES_SIZE, value));
+        // TODO: end of both for loops
     }
 
 }
