@@ -1,6 +1,6 @@
 package utilz;
 
-import static utilz.Constants.EnemyConstants.CRABBY;
+import static utilz.Constants.*;
 import static utilz.Constants.ObjectConstants.*;
 
 import java.awt.Color;
@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import entities.Crabby;
-import main.Game;
 import objects.Cannon;
 import objects.GameContainer;
 import objects.Potion;
