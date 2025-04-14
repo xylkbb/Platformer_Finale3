@@ -1,5 +1,9 @@
 package levels;
 
+import java.awt.Point;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import entities.Crabby;
 import main.Game;
 import objects.Cannon;
@@ -9,12 +13,9 @@ import objects.Spike;
 import utilz.Constants;
 import utilz.HelpMethods;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-
-import static utilz.Constants.Game.*;
-import static utilz.HelpMethods.*;
+import static utilz.HelpMethods.GetLevelData;
+import static utilz.HelpMethods.GetCrabs;
+import static utilz.HelpMethods.GetPlayerSpawn;
 
 public class Level {
 
@@ -64,8 +65,8 @@ public class Level {
 
     private void calcLvlOffsets() {
         lvlTilesWide = img.getWidth();
-        maxTilesOffset = lvlTilesWide - TILES_IN_WIDTH;
-        maxLvlOffsetX = TILES_SIZE * maxTilesOffset;
+        maxTilesOffset = lvlTilesWide - Constants.Game.TILES_IN_WIDTH;
+        maxLvlOffsetX = Constants.Game.TILES_SIZE * maxTilesOffset;
     }
 
     private void createEnemies() {

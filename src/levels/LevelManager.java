@@ -1,13 +1,13 @@
 package levels;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import gamestates.Gamestate;
 import main.Game;
 import utilz.Constants;
 import utilz.LoadSave;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 public class LevelManager {
 

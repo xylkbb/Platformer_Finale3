@@ -38,12 +38,12 @@ public class Crabby extends Enemy {
     }
 
     private void updateBehavior(int[][] lvlData, Player player) {
-        if (firstUpdate) {
+        if (firstUpdate)
             firstUpdateCheck(lvlData);
-        }
-        if (inAir) {
+
+        if (inAir)
             updateInAir(lvlData);
-        } else {
+        else {
             switch (state) {
                 case IDLE:
                     newState(RUNNING);
@@ -70,18 +70,16 @@ public class Crabby extends Enemy {
     }
 
     public int flipX() {
-        if (walkDir == RIGHT){
+        if (walkDir == RIGHT)
             return width;
-        }else{
+        else
             return 0;
-        }
     }
 
     public int flipW() {
-        if (walkDir == RIGHT){
+        if (walkDir == RIGHT)
             return -1;
-        }else{
-            return 0;
-        }
+        else
+            return 1;
     }
 }
